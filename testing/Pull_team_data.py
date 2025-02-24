@@ -89,7 +89,7 @@ def pull_team_data(team, year):
     # Add a delay between requests
     time.sleep(1)
 
-# Example usage
+# Example usage 
 pull_team_data('crd', 2024)
 
 

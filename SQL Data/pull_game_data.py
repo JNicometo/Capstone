@@ -2,12 +2,8 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 from sqlalchemy import create_engine
-import time
 
-def build_pandas_tables(team, year):
-    url = "https://www.pro-football-reference.com/teams/{}/{}.htm"
-    url_make = url.format(team, year)
-    response = requests.get(url_make)
+def ScheduleAndResults(response):
     
     if response.status_code == 200:
         soup = BeautifulSoup(response.text, 'html.parser')
@@ -87,32 +83,8 @@ teams_data = {
     "was": {"name": "Washington_Commanders", "start_year": 1970}
 }
 
-# Define connection parameters for SQL Server
-server = '192.168.68.89'
-username = 'Joe'
-password = '7973'
-driver = 'ODBC Driver 17 for SQL Server'
 
 
-# Loop through each team and each year to pull data and save to the database
-for team_abbr, team_info in teams_data.items():
-    team_name = team_info["name"].replace(" ", "_")  # Replace spaces with underscores for database names
-    start_year = team_info["start_year"]
-    
-    # Create a connection string for SQLAlchemy
-    conn_str = f'mssql+pyodbc://{username}:{password}@{server}/{team_name}?driver={driver.replace(" ", "+")}'
-    engine = create_engine(conn_str)
-    
-    for year in range(start_year, 2025):
-        df = build_pandas_tables(team_abbr, year)
-        if df is not None:
-            table_name = f"{year}_ScheduleAndResults_{team_abbr}"
-            df.to_sql(table_name, engine, if_exists='replace', index=False)
-            print(f"Data for {team_abbr} in {year} saved to table {table_name}.")
-        time.sleep(3)
-
-
-
-# Example usage
-#df = build_pandas_tables("crd", 1970)
+##Example usage
+##df = ScheduleAndResults("crd", 1970)
 #print(df)
