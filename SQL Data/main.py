@@ -7,6 +7,8 @@ import time
 
 import pull_game_data
 import pull_passing_data
+import pull_rushing_and_receiving
+import pull_defense
 
 server = '192.168.68.89'
 username = 'Joe'
@@ -14,9 +16,7 @@ password = '7973'
 driver = 'ODBC Driver 17 for SQL Server'
 
 teams_data = {
-    "crd": {"name": "Arizona_Cardinals", "start_year": 1970}}
-    
-'''
+    "crd": {"name": "Arizona_Cardinals", "start_year": 1970}, 
     "atl": {"name": "Atlanta_Falcons", "start_year": 1970},
     "rav": {"name": "Baltimore_Ravens", "start_year": 1970},
     "buf": {"name": "Buffalo_Bills", "start_year": 1970},
@@ -48,7 +48,7 @@ teams_data = {
     "tam": {"name": "Tampa_Bay_Buccaneers", "start_year": 1976},
     "oti": {"name": "Tennessee_Titans", "start_year": 1970},
     "was": {"name": "Washington_Commanders", "start_year": 1970}}
-'''
+
 
 
 def save_data_to_sql(data_function, response, data_type, engine):
@@ -81,5 +81,6 @@ for team_abbr, team_info in teams_data.items():
 
         save_data_to_sql(pull_game_data.ScheduleAndResults,response, 'ScheduleAndResults', engine)
         save_data_to_sql(pull_passing_data.passing, response, 'passing', engine)
-    
+        save_data_to_sql(pull_rushing_and_receiving.Rushing_and_Receiving, response, 'Rushing_and_Receiving', engine)
+        save_data_to_sql(pull_defense.defense, response, 'defense', engine)
         time.sleep(4)
