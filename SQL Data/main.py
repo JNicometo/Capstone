@@ -47,7 +47,8 @@ teams_data = {
     "sea": {"name": "Seattle_Seahawks", "start_year": 1976},
     "tam": {"name": "Tampa_Bay_Buccaneers", "start_year": 1976},
     "oti": {"name": "Tennessee_Titans", "start_year": 1970},
-    "was": {"name": "Washington_Commanders", "start_year": 1970}}
+    "was": {"name": "Washington_Commanders", "start_year": 2000}
+    }
 
 
 

@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-url = "https://www.pro-football-reference.com/teams/buf/2024.htm"
+url = "https://www.pro-football-reference.com/teams/buf/1970.htm"
 response = requests.get(url)
 
 if response.status_code == 200:

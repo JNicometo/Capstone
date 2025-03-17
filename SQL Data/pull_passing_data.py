@@ -1,4 +1,3 @@
-import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 from sqlalchemy import create_engine
@@ -20,7 +19,3 @@ def passing(response):
     else:
         print(f"Failed to retrieve data: {response.status_code}")
         return None
-    
-#df = passing("crd", 1970)
-#print(df)
-#print(df.shape)

@@ -35,7 +35,7 @@ def ScheduleAndResults(response):
                 return None
             
             # Remove the first row (which was used as the header)
-            df = df[1:].reset_index(drop=True)
+            #df = df[1:].reset_index(drop=True)
             
             # Update the 'home' column
             df['home'] = df['home'].apply(lambda x: False if x == '@' else True)
@@ -83,8 +83,14 @@ teams_data = {
     "was": {"name": "Washington_Commanders", "start_year": 1970}
 }
 
+'''
+team_abbr = "buf"
+year = 1990
 
-
+url = "https://www.pro-football-reference.com/teams/{}/{}.htm"
+url_make = url.format(team_abbr, year)
+response = requests.get(url_make)
 ##Example usage
-##df = ScheduleAndResults("crd", 1970)
-#print(df)
+df = ScheduleAndResults(response)
+print(df)
+'''

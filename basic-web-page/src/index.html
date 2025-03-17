@@ -8,9 +8,50 @@
 </head>
 <body>
     <div class="container">
-        <h1>Enter a Year</h1>
+        <h1>Enter Team, Year, and Table Type</h1>
+        <select id="teamInput" required>
+            <option value="crd">Arizona Cardinals</option>
+            <option value="atl">Atlanta Falcons</option>
+            <option value="rav">Baltimore Ravens</option>
+            <option value="buf">Buffalo Bills</option>
+            <option value="car">Carolina Panthers</option>
+            <option value="chi">Chicago Bears</option>
+            <option value="cin">Cincinnati Bengals</option>
+            <option value="cle">Cleveland Browns</option>
+            <option value="dal">Dallas Cowboys</option>
+            <option value="den">Denver Broncos</option>
+            <option value="det">Detroit Lions</option>
+            <option value="gnb">Green Bay Packers</option>
+            <option value="htx">Houston Texans</option>
+            <option value="clt">Indianapolis Colts</option>
+            <option value="jax">Jacksonville Jaguars</option>
+            <option value="kan">Kansas City Chiefs</option>
+            <option value="sdg">Los Angeles Chargers</option>
+            <option value="ram">Los Angeles Rams</option>
+            <option value="mia">Miami Dolphins</option>
+            <option value="min">Minnesota Vikings</option>
+            <option value="nwe">New England Patriots</option>
+            <option value="nor">New Orleans Saints</option>
+            <option value="nyg">New York Giants</option>
+            <option value="nyj">New York Jets</option>
+            <option value="rai">Las Vegas Raiders</option>
+            <option value="phi">Philadelphia Eagles</option>
+            <option value="pit">Pittsburgh Steelers</option>
+            <option value="sfo">San Francisco 49ers</option>
+            <option value="sea">Seattle Seahawks</option>
+            <option value="tam">Tampa Bay Buccaneers</option>
+            <option value="oti">Tennessee Titans</option>
+            <option value="was">Washington Commanders</option>
+        </select>
         <input type="number" id="yearInput" placeholder="Enter a year" required>
+        <select id="tableTypeInput" required>
+            <option value="defense">Defense</option>
+            <option value="passing">Passing</option>
+            <option value="rushing_and_receiving">Rushing and Receiving</option>
+            <option value="ScheduleAndResults">Schedule and Results</option>
+        </select>
         <button id="submitButton">Submit</button>
+        <button id="downloadButton" style="display:none;">Download CSV</button>
         <div id="result"></div>
     </div>
     <script src="script.js"></script>
